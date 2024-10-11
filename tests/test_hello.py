@@ -1,14 +1,14 @@
-from click.testing import CliRunner, Result
 import pytest
-from app.hello import main
+
+from app.hello import HelloApp
 
 
-@pytest.fixture
-def runner() -> CliRunner:
-    return CliRunner()
+@pytest.mark.asyncio
+async def test_initial_state():
+    """Test that the initial state of the app is correct."""
+    app = HelloApp()
 
-
-def test_main_hello(runner: CliRunner):
-    result: Result = runner.invoke(main, ["Michel"])
-    assert result.exit_code == 0
-    assert "Hello Michel!" in result.output
+    async with app.run_test() as pilot:
+        assert app.screen.get_widget_by_id("name_input").value == ""
+        assert "Submit" in app.screen.get_widget_by_id("submit_button").label
+        assert app.screen.get_widget_by_id("greeting_output").renderable == ""
