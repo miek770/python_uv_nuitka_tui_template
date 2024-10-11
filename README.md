@@ -1,4 +1,4 @@
-# My Python CLI Project Template
+# My Python TUI Project Template
 
 This is a Python terminal user interface (TUI) project template that combines the following libraries:
 
