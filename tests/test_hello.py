@@ -1,6 +1,6 @@
 import pytest
 
-from app.hello import HelloApp
+from src.tui import HelloApp
 
 
 @pytest.mark.asyncio
