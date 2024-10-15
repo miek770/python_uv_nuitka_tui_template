@@ -7,3 +7,5 @@ This is a Python terminal user interface (TUI) project template that combines th
 - `pre-commit`: To active pre-commit hooks, including `black`.
 - `pytest`: To test the project.
 - `textual`: To build the TUI.
+
+See my [blog post](https://codecurrents.blog/article/2024-10-14) for details.
