@@ -2,6 +2,7 @@
 *build
 *dist
 *.egg-info
+*.exe
 .git
 .mypy_cache
 __pycache__
