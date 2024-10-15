@@ -3,9 +3,9 @@ build:
 	# Needs to be adapted for Windows.
 	# See https://nuitka.net/user-documentation/ for details
 	# uv run nuitka --onefile --static-libpython=yes app/hello.py
-	uv run nuitka --onefile src/tui.py
+	uv run python -m nuitka --onefile src/tui.py
 
 tests:
-	uv run pytest
+	uv run python -m pytest
 
 .PHONY: build tests
