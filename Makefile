@@ -1,11 +1,13 @@
+NAME = $(shell grep '^name =' pyproject.toml | sed -E 's/name = "(.*)"/\1/')
+VERSION = $(shell grep '^version =' pyproject.toml | sed -E 's/version = "(.*)"/\1/')
+
 build:
-	# Replace --onefile with --standalone if desired.
-	# Needs to be adapted for Windows.
-	# See https://nuitka.net/user-documentation/ for details
-	# uv run nuitka --onefile --static-libpython=yes app/hello.py
-	uv run python -m nuitka --onefile --show-progress src/tui.py
+	uv run python -m nuitka --onefile --show-progress --output-filename=$(NAME)_v$(VERSION).exe src/cli.py
+
+info:
+	@echo $(NAME), version $(VERSION)
 
 tests:
 	uv run python -m pytest
 
-.PHONY: build tests
+.PHONY: build info tests
